@@ -1,0 +1,48 @@
+<div class="flex justify-between text-3xl mb-6 font-extrabold">
+  Tasks List
+  <button mat-flat-button color="primary" (click)="openDialog()">Add Task</button>
+</div>
+
+<!-- <mat-card class="mb-6" *ngFor="let task of tasks">   
+  <mat-list role="list">
+      <mat-list-item role="listitem"><div class="font-bold mr-2">User name: </div>{{task.title}}</mat-list-item>
+      <mat-list-item role="listitem"><div class="font-bold mr-2">User Email: </div>{{task.description}}</mat-list-item>
+  </mat-list>          
+</mat-card> -->
+
+<mat-table [dataSource]="tasks" class="w-full">
+
+  <!-- Title Column -->
+  <ng-container matColumnDef="title">
+    <mat-header-cell *matHeaderCellDef class="flex"> Title </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="flex"> {{element.title}} </mat-cell>
+  </ng-container>
+
+  <!-- Description Column -->
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef class="flex"> Description </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="flex"> {{element.description}} </mat-cell>
+  </ng-container>
+
+  <!-- Assignee Column -->
+  <ng-container matColumnDef="assignee">
+    <mat-header-cell *matHeaderCellDef class="flex"> Assignee </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="flex"> {{element.assignee}} </mat-cell>
+  </ng-container>
+
+  <!-- Deadline -->
+  <ng-container matColumnDef="deadline">
+    <mat-header-cell *matHeaderCellDef class="flex"> Deadline </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="flex"> {{element.deadline}} </mat-cell>
+  </ng-container>
+
+  <!-- Status Column -->
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef class="flex"> Status </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="flex uppercase"> {{element.status}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+

@@ -1,0 +1,33 @@
+<span mat-dialog-title class="uppercase text-blue-500">Add new user</span>
+<div mat-dialog-content [formGroup]="taskForm" >
+    <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Title</mat-label>
+        <input formControlName="title" matInput>
+      </mat-form-field>
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Description</mat-label>
+        <input formControlName="description" matInput>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Assignee</mat-label>
+        <mat-select formControlName="assignee">
+          <mat-option [value]="user.userName" *ngFor="let user of users">{{user.userName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Deadline</mat-label>
+        <input formControlName="deadline" type="date" matInput>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option value="to do">To do</mat-option>
+          <mat-option value="in progress">In Progress</mat-option>
+          <mat-option value="done">Done</mat-option>
+        </mat-select>
+      </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="warn" [mat-dialog-close]>Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="taskForm.invalid" (click)="submit()">Add</button>
+</div>

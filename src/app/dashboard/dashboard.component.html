@@ -1,0 +1,51 @@
+<div>
+    <div class="flex overflow-hidden bg-white">
+       <aside id="sidebar" class="top-0 left-0 flex lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75" aria-label="Sidebar">
+          <div class="relative flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white pt-0">
+             <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+                <div class="flex-1 px-3 bg-white divide-y space-y-1">
+                   <ul class="space-y-2 pb-2">
+                      <li>
+                         <a [routerLink]="['task-manager']" routerLinkActive="bg-neutral-200"  class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
+                            <svg class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                               <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                               <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                            </svg>
+                            <span class="ml-3">Task Manager</span>
+                         </a>
+                      </li>
+                      <li>
+                         <a [routerLink]="['profile']" routerLinkActive="bg-neutral-200" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <span class="ml-3 flex-1 whitespace-nowrap">Profile</span>
+                         </a>
+                      </li>
+                      <li *ngIf="user?.isAdmin">
+                        <a [routerLink]="['manage']" routerLinkActive="bg-neutral-200"  class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                           <span class="ml-3 flex-1 whitespace-nowrap">Manage Users</span>
+                        </a>
+                     </li>
+                   </ul>
+                   <div class="space-y-2 pt-2">
+                      <a (click)="logOut()" class="text-base cursor-pointer text-gray-900 font-normal rounded-lg hover:bg-gray-100 group transition duration-75 flex items-center p-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"  viewBox="0 0 24 24" fill="currentColor"><path d="M16 17l5-5-5-5M19.8 12H9M10 3H4v18h6"/></svg>
+                         <span class="ml-4">Logout</span>
+                      </a>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </aside>
+       <div class="bg-gray-900 opacity-50 hidden fixed inset-0 z-10" id="sidebarBackdrop"></div>
+       <div id="main-content" class="h-full w-full bg-gray-50 relative overflow-y-auto">
+          <main>
+             <div class="pt-8 px-6 h-screen">
+                <router-outlet></router-outlet>
+                <!-- <app-task-manager></app-task-manager> -->
+             </div>
+          </main>
+       </div>
+    </div>
+ </div>

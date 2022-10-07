@@ -1,0 +1,15 @@
+<div class="flex justify-between text-3xl mb-6 font-extrabold">
+    Organization users
+    <button mat-flat-button color="primary" (click)="openDialog()">Add User</button>
+</div>
+<mat-card class="mb-6" *ngFor="let user of users">   
+    <mat-list role="list">
+        <!-- <mat-list-item><div class="text-xl font-extrabold">User</div></mat-list-item> -->
+        <mat-list-item role="listitem"><div class="font-bold mr-2">User name: </div>{{user.userName}}</mat-list-item>
+        <mat-list-item role="listitem"><div class="font-bold mr-2">User Email: </div>{{user.email}}</mat-list-item>
+    </mat-list>          
+</mat-card>
+
+<mat-card *ngIf="users?.length === 0">
+    <div class="text-2xl font-semibold">No user found for this organization</div>
+</mat-card>

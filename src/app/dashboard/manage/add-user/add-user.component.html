@@ -1,0 +1,19 @@
+<span mat-dialog-title class="uppercase text-blue-500">Add new user</span>
+<div mat-dialog-content [formGroup]="userForm" >
+    <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input formControlName="userName" matInput>
+      </mat-form-field>
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput>
+      </mat-form-field>
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" type="password" matInput>
+      </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="warn" [mat-dialog-close]>Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="userForm.invalid" (click)="submit()">Add</button>
+</div>

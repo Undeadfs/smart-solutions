@@ -1,0 +1,53 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "userName": "new admin",
+      "phoneNumber": "123",
+      "address": "address",
+      "email": "admin@gmail.com",
+      "password": "123456",
+      "isAdmin": true
+    },
+    {
+      "userName": "new user",
+      "email": "user@gmail.com",
+      "password": "123456",
+      "id": 2
+    },
+    {
+      "userName": "new user 2",
+      "email": "user2@gmail.com",
+      "password": "123456",
+      "id": 3
+    }
+  ],
+  "organizations": [
+    {
+      "title": "new org",
+      "users": [
+        {
+          "userName": "new user",
+          "email": "user@gmail.com",
+          "password": "123456"
+        },
+        {
+          "userName": "new user 2",
+          "email": "user2@gmail.com",
+          "password": "123456"
+        }
+      ],
+      "id": 1
+    }
+  ],
+  "tasks": [
+    {
+      "title": "new task",
+      "description": "desc",
+      "assignee": "new user",
+      "deadline": "2022-10-15",
+      "status": "in progress",
+      "id": 1
+    }
+  ]
+}
